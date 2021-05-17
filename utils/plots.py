@@ -73,7 +73,7 @@ def fill_one_box(x, img):
     
     max_y, max_x = img.shape[:-1]
     if (int(x[0])<(0.10 * max_x)):    
-        x[2] = x[2] + x[0] 
+        x[2] = x[2] + (2 * x[0])
         x[0] = 0
         if (int(x[1])< (0.10 * max_y)):
             # x[3] = x[1] + x[3]
@@ -83,7 +83,7 @@ def fill_one_box(x, img):
             x[3] = max_y
             
     elif (int(x[2])> (0.90 * max_y)):
-        x[0] = x[0] - (max_x - x[2])   
+        x[0] = x[0] - 2 * (max_x - x[2])   
         x[2] = max_x
         if (int(x[1]) < (0.10 * max_y)):
             # x[3] = x[1] + x[3]
