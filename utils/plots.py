@@ -68,6 +68,30 @@ def plot_one_box(x, img, color=None, label=None, line_thickness=3):
         cv2.putText(img, label, (c1[0], c1[1] - 2), 0, tl / 3, [225, 255, 255], thickness=tf, lineType=cv2.LINE_AA)
 
 def fill_one_box(x, img):
+    
+    ### SMall adjustment in the bounding box to have a better crop
+    
+    max_y, max_x = img.shape[:-1]
+    if (int(x[0])<(0.10 * max_x)):    
+        x[2] = x[2] + x[0] 
+        x[0] = 0
+        if (int(x[1])< (0.10 * max_y)):
+            x[3] = x[1] + x[3]
+            x[1] = 0   
+        elif (int(x[3])> (0.90 * max_y)):
+            x[1] = x[1] - (max_y - x[3])   
+            x[3] = max_y
+            
+    elif (int(x[2])> (0.90 * max_y)):
+        x[0] = x[0] - (max_x - x[2])   
+        x[2] = max_x
+        if (int(x[1]) < (0.10 * max_y)):
+            x[3] = x[1] + x[3]
+            x[1] = 0   
+        elif (int(x[3])> (0.90 * max_y)):
+            x[1] = x[1] - (max_y - x[3])   
+            x[3] = max_y        
+            
     c1, c2 = (int(x[0]), int(x[1])), (int(x[2]), int(x[3]))
     cv2.rectangle(img, c1, c2, (255,255,255),-1, lineType=cv2.LINE_AA) # filled
 
