@@ -76,20 +76,20 @@ def fill_one_box(x, img):
         x[2] = x[2] + x[0] 
         x[0] = 0
         if (int(x[1])< (0.10 * max_y)):
-            x[3] = x[1] + x[3]
+            # x[3] = x[1] + x[3]
             x[1] = 0   
         elif (int(x[3])> (0.90 * max_y)):
-            x[1] = x[1] - (max_y - x[3])   
+            # x[1] = x[1] - (max_y - x[3])   
             x[3] = max_y
             
     elif (int(x[2])> (0.90 * max_y)):
         x[0] = x[0] - (max_x - x[2])   
         x[2] = max_x
         if (int(x[1]) < (0.10 * max_y)):
-            x[3] = x[1] + x[3]
+            # x[3] = x[1] + x[3]
             x[1] = 0   
         elif (int(x[3])> (0.90 * max_y)):
-            x[1] = x[1] - (max_y - x[3])   
+            # x[1] = x[1] - (max_y - x[3])   
             x[3] = max_y        
             
     c1, c2 = (int(x[0]), int(x[1])), (int(x[2]), int(x[3]))
