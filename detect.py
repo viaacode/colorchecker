@@ -22,8 +22,8 @@ def detect(save_img=False):
         ('rtsp://', 'rtmp://', 'http://', 'https://'))
     
     #### alternate
-    if crop == "true":
-        save_img = "False"
+    if crop == True:
+        save_img = False
 
     # Directories
     save_dir = Path(increment_path(Path(opt.project) / opt.name, exist_ok=opt.exist_ok))  # increment run
@@ -117,7 +117,7 @@ def detect(save_img=False):
                         plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
                         
                     elif crop:
-                        fill_one_box(xyxy, im0, label=label, color="white")
+                        fill_one_box(xyxy, im0)
 
             # Print time (inference + NMS)
             print(f'{s}Done. ({t2 - t1:.3f}s)')
@@ -190,7 +190,7 @@ if __name__ == '__main__':
     parser.add_argument('--project', default='runs/detect', help='save results to project/name')
     parser.add_argument('--name', default='exp', help='save results to project/name')
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
-    parser.add_argument('--crop', action='store_true', help='do not save images/videos')
+    parser.add_argument('--crop', type=bool, help='crop out and save the rest of the iamge')
     opt = parser.parse_args()
     print(opt)
     check_requirements(exclude=('pycocotools', 'thop'))

@@ -67,11 +67,9 @@ def plot_one_box(x, img, color=None, label=None, line_thickness=3):
         cv2.rectangle(img, c1, c2, color, -1, cv2.LINE_AA)  # filled
         cv2.putText(img, label, (c1[0], c1[1] - 2), 0, tl / 3, [225, 255, 255], thickness=tf, lineType=cv2.LINE_AA)
 
-def fill_one_box(x, img, color="white", label=None):
-    # Plots one bounding box on image img
-    color = color or [random.randint(0, 255) for _ in range(3)]
+def fill_one_box(x, img):
     c1, c2 = (int(x[0]), int(x[1])), (int(x[2]), int(x[3]))
-    cv2.rectangle(img, c1, c2, color,-1, lineType=cv2.LINE_AA) # filled
+    cv2.rectangle(img, c1, c2, (255,255,255),-1, lineType=cv2.LINE_AA) # filled
 
 
 def plot_one_box_PIL(box, img, color=None, label=None, line_thickness=None):
