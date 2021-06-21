@@ -82,7 +82,7 @@ $ python train.py --data coco.yaml --cfg yolov3.yaml      --weights '' --batch-s
                                          yolov3-spp.yaml                            24
                                          yolov3-tiny.yaml                           64
 ```
-<img width="800" src="https://user-images.githubusercontent.com/26833433/100378028-af170c80-3012-11eb-8521-f0d2a8d021bc.png">
+<img width="800" src="https://github.com/tckrishna/colorchecker/blob/f10b5ebd4f8b16a83d8db4c95ea523ba0e7dccf5/data/images/results.png">
 
 
 ## Citation
@@ -91,15 +91,26 @@ $ python train.py --data coco.yaml --cfg yolov3.yaml      --weights '' --batch-s
 
 
 ## About Us
+  
+ [assets3]: https://s-team-ghent.github.io/
+ [assets4]: https://tw06v072.ugent.be/kbr/
+ [assets5]: http://www.floredegand.be/lamgods/
+ [assets6]: https://tw06v072.ugent.be/eureca
+ [assets7]: http://tw06v074.ugent.be/
+  
+ Research group homepage: [LINK][assets3]
+  
+Over the past years, IDLab researchers of Ghent University have developed several building blocks for multimodal data processing, computer vision, NLP/NER, spatio-temporal enrichment, data mining, and cross-collection linking which can - with some modifications - also be applied to the proposed social security cards collection.
 
-Ultralytics is a U.S.-based particle physics and AI startup with over 6 years of expertise supporting government, academic and business clients. We offer a wide range of vision AI services, spanning from simple expert advice up to delivery of fully customized, end-to-end production solutions, including:
-- **Cloud-based AI** systems operating on **hundreds of HD video streams in realtime.**
-- **Edge AI** integrated into custom iOS and Android apps for realtime **30 FPS video inference.**
-- **Custom data training**, hyperparameter evolution, and model exportation to any destination.
-
-For business inquiries and professional support requests please visit us at https://www.ultralytics.com. 
+In the domain of cultural heritage the team of prof. Steven Verstockt have built up a lot of expertise and (inter)national collaboration in the UGESCO, EURECA, Flore de Gand, CHANGE, DATA-KBR-BE, FAME and Museum in de Living projects.
+  
+Links to demonstrators of related projects:
+[DATA-KBR-BE][assets4] (Document layout analysis, image similarity, NER)
+[Flore de Gand][assets5] (Digitization, cross-collection linking, herbaria)
+[Eureca][assets6] (HTR, document layout analysis, labeling tool)
+[Ugesco][assets7] (Object detection, NER, crowdsourcing)
 
 
 ## Contact
 
-**Issues should be raised directly in the repository.** For business inquiries or professional support requests please visit https://www.ultralytics.com or email Glenn Jocher at glenn.jocher@ultralytics.com. 
+**Issues should be raised directly in the repository.** For business inquiries or professional support requests please visit https://s-team-ghent.github.io/ or email Prof. Steven Verstockt at steven.verstockt@ugent.be.
