@@ -4,17 +4,6 @@ This repo has data, yaml and weights necessary to train colorscale checker using
 
 This repository represents IdLab's open-source colorscale checker using object detection methods, to be used in cutural and hertiage domain. It incorporates lessons learned and best practices evolved over hours of training and evolution on manually labelled datasets. This repo is based on ultralytics yolo v3 pytorch implementatiion. **All code and models are under active development, and are subject to modification or deletion without notice.** Use at your own risk.
 
-
-## Download Pretrained weights and dataset
-
-Download the pretrained weights trained for ~300 epochs to directly use the model for inference.
-
-To train the model, download colorchecker.yaml and colorchecker dataset. The dataset is a small 60-image dataset which is already split into train, test and evaluate. Train and test are used for training and validating the model, while evaluate is used to test the model after training.
-
-
-The dataset and pretrained weights are present in the [weights.zip](https://github.com/tckrishna/colorchecker/blob/19bb2ae539e201e666ea6b50b745b7bb2c6b8f34/weights.zip) and [dataset.zip](https://github.com/tckrishna/colorchecker/blob/19bb2ae539e201e666ea6b50b745b7bb2c6b8f34/dataset.zip) respeectively.
-
-
 ## Requirements
 
 Python 3.8 or later with all [requirements.txt](https://github.com/ultralytics/yolov3/blob/master/requirements.txt) dependencies installed, including `torch>=1.7`. To install run:
@@ -26,9 +15,21 @@ $ pip install -r requirements.txt
 
 * [Installation and general usage](https://colab.research.google.com/drive/1OreAxCrCTkTqbIxu2Z_8KWuCujKyyncI?usp=sharing)&nbsp; 🚀 RECOMMENDED
 
+
+## Download Pretrained weights and dataset
+
+Download the pretrained weights trained for ~300 epochs to directly use the model for inference.
+
+To train the model, download colorchecker.yaml and colorchecker dataset. The dataset is a small 60-image dataset which is already split into train, test and evaluate. Train and test are used for training and validating the model, while evaluate is used to test the model after training.
+
+
+The dataset and pretrained weights are present in the [weights.zip](https://github.com/tckrishna/colorchecker/blob/19bb2ae539e201e666ea6b50b745b7bb2c6b8f34/weights.zip) and [dataset.zip](https://github.com/tckrishna/colorchecker/blob/19bb2ae539e201e666ea6b50b745b7bb2c6b8f34/dataset.zip) respeectively.
+
+
 ## Inference
 
-`detect.py` runs inference on a variety of sources, downloading models automatically from the [latest YOLOv3 release](https://github.com/ultralytics/yolov3/releases) and saving results to `runs/detect`.
+`detect.py` runs inference on a variety of sources, based on the model unzipped from the weights.zip and saving results to `runs/detect`.
+
 ```bash
 
 $ python detect.py --source 0  # webcam
@@ -52,7 +53,7 @@ $ python detect.py --weights weights/best.pt --img 640 --conf 0.25 --source data
 
 ## Training
 
-Train the YOLOv3 model on colorchecker dataset with **--data colorchecker.yaml**, starting from pretrained **--weights weights/last.pt**, or from randomly initialized **--weights '' --cfg yolov3.yaml**. Models are downloaded automatically from the [latest YOLOv3 release](https://github.com/ultralytics/yolov3/releases).
+Train the YOLOv3 model on colorchecker dataset with `--data colorchecker.yaml`, starting from pretrained `--weights weights/last.pt`, or from randomly initialized `--weights '' --cfg yolov3.yaml`. Models are downloaded automatically from the [latest YOLOv3 release](https://github.com/ultralytics/yolov3/releases).
 
 All training results are saved to `runs/train/` with incrementing run directories, i.e. `runs/train/exp2`, `runs/train/exp3` etc.
 
