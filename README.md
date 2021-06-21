@@ -5,28 +5,14 @@ This repo has data, yaml and weights necessary to train colorscale checker using
 This repository represents IdLab's open-source colorscale checker using object detection methods, to be used in cutural and hertiage domain. It incorporates lessons learned and best practices evolved over hours of training and evolution on manually labelled datasets. This repo is based on ultralytics yolo v3 pytorch implementatiion. **All code and models are under active development, and are subject to modification or deletion without notice.** Use at your own risk.
 
 
-## Pretrained Checkpoints
+## Download Pretrained weights and dataset
 
-[assets3]: https://github.com/ultralytics/yolov3/releases
-[assets5]: https://github.com/ultralytics/yolov5/releases
+Download the pretrained weights trained for ~300 epochs to directly use the model for inference.
 
-Model |size<br><sup>(pixels) |mAP<sup>val<br>0.5:0.95 |mAP<sup>test<br>0.5:0.95 |mAP<sup>val<br>0.5 |Speed<br><sup>V100 (ms) | |params<br><sup>(M) |FLOPS<br><sup>640 (B)
----   |---                   |---                     |---                      |---                |---                     |---|---              |---
-[YOLOv3-tiny][assets3] |640  |17.6     |17.6     |34.8     |**1.2** | |8.8   |13.2
-[YOLOv3][assets3]      |640  |43.3     |43.3     |63.0     |4.1     | |61.9  |156.3
-[YOLOv3-SPP][assets3]  |640  |44.3     |44.3     |64.6     |4.1     | |63.0  |157.1
-| | | | | | || |
-[YOLOv5l][assets5]     |640  |**48.2** |**48.2** |**66.9** |3.7     | |47.0  |115.4
+To train the model, download colorchecker.yaml and colorchecker dataset. The dataset is a small 60-image dataset which is already split into train, test and evaluate. Train and test are used for training and validating the model, while evaluate is used to test the model after training.
 
 
-<details>
-  <summary>Table Notes (click to expand)</summary>
-  
-  * AP<sup>test</sup> denotes COCO [test-dev2017](http://cocodataset.org/#upload) server results, all other AP results denote val2017 accuracy.  
-  * AP values are for single-model single-scale unless otherwise noted. **Reproduce mAP** by `python test.py --data coco.yaml --img 640 --conf 0.001 --iou 0.65`  
-  * Speed<sub>GPU</sub> averaged over 5000 COCO val2017 images using a GCP [n1-standard-16](https://cloud.google.com/compute/docs/machine-types#n1_standard_machine_types) V100 instance, and includes FP16 inference, postprocessing and NMS. **Reproduce speed** by `python test.py --data coco.yaml --img 640 --conf 0.25 --iou 0.45`  
-  * All checkpoints are trained to 300 epochs with default settings and hyperparameters (no autoaugmentation). 
-</details>
+The dataset and pretrained weights are present in the [weights.zip](https://github.com/tckrishna/colorchecker/blob/19bb2ae539e201e666ea6b50b745b7bb2c6b8f34/weights.zip) and [dataset.zip](https://github.com/tckrishna/colorchecker/blob/19bb2ae539e201e666ea6b50b745b7bb2c6b8f34/dataset.zip) respeectively.
 
 
 ## Requirements
@@ -35,6 +21,10 @@ Python 3.8 or later with all [requirements.txt](https://github.com/ultralytics/y
 ```bash
 $ pip install -r requirements.txt
 ```
+
+## Tutorials
+
+* [Installation and general usage](https://colab.research.google.com/drive/1OreAxCrCTkTqbIxu2Z_8KWuCujKyyncI?usp=sharing)&nbsp; 🚀 RECOMMENDED
 
 ## Inference
 
@@ -50,12 +40,15 @@ $ python detect.py --source 0  # webcam
                             'rtsp://example.com/media.mp4'  # RTSP, RTMP, HTTP stream
 ```
 
-To run inference on example images in `data/images`:
-```bash
-$ python detect.py --source data/images --weights colorchecker.pt --conf 0.25
-```
 <img width="500" src="https://github.com/tckrishna/colorchecker/blob/1ce33c44706e4c61fb41082c3814fdbed1113e36/data/images/test_batch1_pred.jpg">  
 
+
+Use **--crop True** incase you want to delete/crop the detected colorscale from the picture.
+
+To run inference on example images in `data/images`:
+```bash
+$ python detect.py --weights weights/best.pt --img 640 --conf 0.25 --source dataset/evaluate/ --crop True
+```
 
 ## Training
 
