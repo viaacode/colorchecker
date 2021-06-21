@@ -41,12 +41,16 @@ $ python detect.py --source 0  # webcam
                             'rtsp://example.com/media.mp4'  # RTSP, RTMP, HTTP stream
 ```
 
+To run inference on example images in `dataset/evaluate`:
+```bash
+$ python detect.py --weights weights/best.pt --img 640 --conf 0.25 --source dataset/evaluate/
+```
+
 <img width="500" src="https://github.com/tckrishna/colorchecker/blob/1ce33c44706e4c61fb41082c3814fdbed1113e36/data/images/test_batch1_pred.jpg">  
 
 
 Use **--crop True** incase you want to delete/crop the detected colorscale from the picture.
 
-To run inference on example images in `data/images`:
 ```bash
 $ python detect.py --weights weights/best.pt --img 640 --conf 0.25 --source dataset/evaluate/ --crop True
 ```
