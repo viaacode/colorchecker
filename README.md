@@ -52,7 +52,11 @@ $ python detect.py --weights weights/best.pt --img 640 --conf 0.25 --source data
 
 ## Training
 
-Run commands below to reproduce results on [COCO](https://github.com/ultralytics/yolov3/blob/master/data/scripts/get_coco.sh) dataset (dataset auto-downloads on first use). Training times for YOLOv3/YOLOv3-SPP/YOLOv3-tiny are 6/6/2 days on a single V100 (multi-GPU times faster). Use the largest `--batch-size` your GPU allows (batch sizes shown for 16 GB devices).
+Train the YOLOv3 model on colorchecker dataset with **--data colorchecker.yaml**, starting from pretrained **--weights weights/last.pt**, or from randomly initialized **--weights '' --cfg yolov3.yaml**. Models are downloaded automatically from the [latest YOLOv3 release](https://github.com/ultralytics/yolov3/releases).
+
+All training results are saved to `runs/train/` with incrementing run directories, i.e. `runs/train/exp2`, `runs/train/exp3` etc.
+
+
 ```bash
 $ python train.py --img 640 --batch 16 --epochs 100 --data colorchecker.yaml --weights weights/last.pt --nosave --cache
 ```
