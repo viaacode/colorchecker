@@ -105,10 +105,11 @@ Over the past years, IDLab researchers of Ghent University have developed severa
 In the domain of cultural heritage the team of prof. Steven Verstockt have built up a lot of expertise and (inter)national collaboration in the UGESCO, EURECA, Flore de Gand, CHANGE, DATA-KBR-BE, FAME and Museum in de Living projects.
   
 Links to demonstrators of related projects:
-[DATA-KBR-BE][assets4] (Document layout analysis, image similarity, NER)
-[Flore de Gand][assets5] (Digitization, cross-collection linking, herbaria)
-[Eureca][assets6] (HTR, document layout analysis, labeling tool)
-[Ugesco][assets7] (Object detection, NER, crowdsourcing)
+
+* [DATA-KBR-BE][assets4] (Document layout analysis, image similarity, NER)
+* [Flore de Gand][assets5] (Digitization, cross-collection linking, herbaria)
+* [Eureca][assets6] (HTR, document layout analysis, labeling tool)
+* [Ugesco][assets7] (Object detection, NER, crowdsourcing)
 
 
 ## Contact
