@@ -2,19 +2,8 @@
 
 This repo has data, yaml and weights necessary to train colorscale checker using yolov3
 
-This repository represents Ultralytics open-source research into future object detection methods, and incorporates lessons learned and best practices evolved over thousands of hours of training and evolution on anonymized client datasets. **All code and models are under active development, and are subject to modification or deletion without notice.** Use at your own risk.
+This repository represents IdLab's open-source colorscale checker using object detection methods, to be used in cutural and hertiage domain. It incorporates lessons learned and best practices evolved over hours of training and evolution on manually labelled datasets. This repo is based on ultralytics yolo v3 pytorch implementatiion. **All code and models are under active development, and are subject to modification or deletion without notice.** Use at your own risk.
 
-## Branch Notice
-
-The [ultralytics/yolov3](https://github.com/ultralytics/yolov3) repository is now divided into two branches:
-* [Master branch](https://github.com/ultralytics/yolov3/tree/master): Forward-compatible with all [YOLOv5](https://github.com/ultralytics/yolov5) models and methods (**recommended** ✅).
-```bash
-$ git clone https://github.com/ultralytics/yolov3  # master branch (default)
-```
-* [Archive branch](https://github.com/ultralytics/yolov3/tree/archive): Backwards-compatible with original [darknet](https://pjreddie.com/darknet/) *.cfg models (**no longer maintained** ⚠️). 
-```bash
-$ git clone https://github.com/ultralytics/yolov3 -b archive  # archive branch
-```
 
 ## Pretrained Checkpoints
 
@@ -47,38 +36,11 @@ Python 3.8 or later with all [requirements.txt](https://github.com/ultralytics/y
 $ pip install -r requirements.txt
 ```
 
-
-## Tutorials
-
-* [Train Custom Data](https://github.com/ultralytics/yolov3/wiki/Train-Custom-Data)&nbsp; 🚀 RECOMMENDED
-* [Tips for Best Training Results](https://github.com/ultralytics/yolov5/wiki/Tips-for-Best-Training-Results)&nbsp; ☘️ RECOMMENDED
-* [Weights & Biases Logging](https://github.com/ultralytics/yolov5/issues/1289)&nbsp; 🌟 NEW
-* [Supervisely Ecosystem](https://github.com/ultralytics/yolov5/issues/2518)&nbsp; 🌟 NEW
-* [Multi-GPU Training](https://github.com/ultralytics/yolov5/issues/475)
-* [PyTorch Hub](https://github.com/ultralytics/yolov5/issues/36)&nbsp; ⭐ NEW
-* [TorchScript, ONNX, CoreML Export](https://github.com/ultralytics/yolov5/issues/251) 🚀
-* [Test-Time Augmentation (TTA)](https://github.com/ultralytics/yolov5/issues/303)
-* [Model Ensembling](https://github.com/ultralytics/yolov5/issues/318)
-* [Model Pruning/Sparsity](https://github.com/ultralytics/yolov5/issues/304)
-* [Hyperparameter Evolution](https://github.com/ultralytics/yolov5/issues/607)
-* [Transfer Learning with Frozen Layers](https://github.com/ultralytics/yolov5/issues/1314)&nbsp; ⭐ NEW
-* [TensorRT Deployment](https://github.com/wang-xinyu/tensorrtx)
-
-
-## Environments
-
-YOLOv3 may be run in any of the following up-to-date verified environments (with all dependencies including [CUDA](https://developer.nvidia.com/cuda)/[CUDNN](https://developer.nvidia.com/cudnn), [Python](https://www.python.org/) and [PyTorch](https://pytorch.org/) preinstalled):
-
-- **Google Colab and Kaggle** notebooks with free GPU: <a href="https://colab.research.google.com/github/ultralytics/yolov3/blob/master/tutorial.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> <a href="https://www.kaggle.com/ultralytics/yolov3"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a>
-- **Google Cloud** Deep Learning VM. See [GCP Quickstart Guide](https://github.com/ultralytics/yolov3/wiki/GCP-Quickstart)
-- **Amazon** Deep Learning AMI. See [AWS Quickstart Guide](https://github.com/ultralytics/yolov3/wiki/AWS-Quickstart)
-- **Docker Image**. See [Docker Quickstart Guide](https://github.com/ultralytics/yolov3/wiki/Docker-Quickstart) <a href="https://hub.docker.com/r/ultralytics/yolov3"><img src="https://img.shields.io/docker/pulls/ultralytics/yolov3?logo=docker" alt="Docker Pulls"></a>
-
-
 ## Inference
 
 `detect.py` runs inference on a variety of sources, downloading models automatically from the [latest YOLOv3 release](https://github.com/ultralytics/yolov3/releases) and saving results to `runs/detect`.
 ```bash
+
 $ python detect.py --source 0  # webcam
                             file.jpg  # image 
                             file.mp4  # video
@@ -90,9 +52,9 @@ $ python detect.py --source 0  # webcam
 
 To run inference on example images in `data/images`:
 ```bash
-$ python detect.py --source data/images --weights yolov3.pt --conf 0.25
+$ python detect.py --source data/images --weights colorchecker.pt --conf 0.25
 ```
-<img width="500" src="https://user-images.githubusercontent.com/26833433/100375993-06b37900-300f-11eb-8d2d-5fc7b22fbfbd.jpg">  
+<img width="500" src="https://github.com/tckrishna/colorchecker/blob/1ce33c44706e4c61fb41082c3814fdbed1113e36/data/images/test_batch1_pred.jpg">  
 
 ### PyTorch Hub
 
