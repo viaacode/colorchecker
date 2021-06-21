@@ -56,23 +56,6 @@ $ python detect.py --source data/images --weights colorchecker.pt --conf 0.25
 ```
 <img width="500" src="https://github.com/tckrishna/colorchecker/blob/1ce33c44706e4c61fb41082c3814fdbed1113e36/data/images/test_batch1_pred.jpg">  
 
-### PyTorch Hub
-
-To run **batched inference** with YOLOv5 and [PyTorch Hub](https://github.com/ultralytics/yolov5/issues/36):
-```python
-import torch
-
-# Model
-model = torch.hub.load('ultralytics/yolov3', 'yolov3')  # or 'yolov3_spp', 'yolov3_tiny'
-
-# Image
-img = 'https://ultralytics.com/images/zidane.jpg'
-
-# Inference
-results = model(img)
-results.print()  # or .show(), .save()
-```
-
 
 ## Training
 
