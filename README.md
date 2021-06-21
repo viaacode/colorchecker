@@ -85,11 +85,6 @@ $ python train.py --data coco.yaml --cfg yolov3.yaml      --weights '' --batch-s
 <img width="800" src="https://github.com/tckrishna/colorchecker/blob/f10b5ebd4f8b16a83d8db4c95ea523ba0e7dccf5/data/images/results.png">
 
 
-## Citation
-
-[![DOI](https://zenodo.org/badge/146165888.svg)](https://zenodo.org/badge/latestdoi/146165888)
-
-
 ## About Us
   
  [assets3]: https://s-team-ghent.github.io/
@@ -115,3 +110,8 @@ Links to demonstrators of related projects:
 ## Contact
 
 **Issues should be raised directly in the repository.** For business inquiries or professional support requests please visit https://s-team-ghent.github.io/ or email Prof. Steven Verstockt at steven.verstockt@ugent.be.
+  
+
+## Citation
+
+[![DOI](https://zenodo.org/badge/146165888.svg)](https://zenodo.org/badge/latestdoi/146165888)
