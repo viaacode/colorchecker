@@ -78,7 +78,7 @@ $ python train.py --img 640 --batch 16 --epochs 100 --data colorchecker.yaml --w
   
  Research group homepage: [LINK][assets3]
   
-Over the past years, IDLab researchers of Ghent University have developed several building blocks for multimodal data processing, computer vision, NLP/NER, spatio-temporal enrichment, data mining, and cross-collection linking.
+Over the past years, IDLab researchers of Ghent University have developed several building blocks for multimodal data processing, computer vision, NLP/NER, cross-collection linking, spatio-temporal enrichment and data mining that are predominetly used to address cultural and digital heritage problems.
 
 In the domain of cultural heritage the team of prof. Steven Verstockt have built up a lot of expertise and (inter)national collaboration in the UGESCO, EURECA, Flore de Gand, CHANGE, DATA-KBR-BE, FAME and Museum in de Living projects.
   
