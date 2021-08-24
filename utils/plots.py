@@ -54,6 +54,35 @@ def butter_lowpass_filtfilt(data, cutoff=1500, fs=50000, order=5):
     return filtfilt(b, a, data)  # forward-backward filter
 
 
+def crop_one_box(x, img):
+    max_y, max_x = img.shape[:-1]
+    if int(x[0]) < (0.10 * max_x):
+        x[2] = x[2] + (2 * x[0])
+        x[0] = 0
+        if int(x[1]) < (0.10 * max_y):
+            # x[3] = x[1] + x[3]
+            x[1] = 0
+        elif int(x[3]) > (0.90 * max_y):
+            # x[1] = x[1] - (max_y - x[3])
+            x[3] = max_y
+
+    elif int(x[2]) > (0.90 * max_y):
+        x[0] = x[0] - 2 * (max_x - x[2])
+        x[2] = max_x
+        if int(x[1]) < (0.10 * max_y):
+            # x[3] = x[1] + x[3]
+            x[1] = 0
+        elif int(x[3]) > (0.90 * max_y):
+            # x[1] = x[1] - (max_y - x[3])
+            x[3] = max_y
+
+    c1, c2 = (int(x[0]), int(x[1])), (int(x[2]), int(x[3]))
+
+    x1, y1 = c1
+    x2, y2 = c2
+
+    return img[0:y1, 0:max_x]
+
 def plot_one_box(x, img, color=None, label=None, line_thickness=3):
     # Plots one bounding box on image img
     tl = line_thickness or round(0.002 * (img.shape[0] + img.shape[1]) / 2) + 1  # line/font thickness
