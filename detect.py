@@ -11,7 +11,7 @@ from models.experimental import attempt_load
 from utils.datasets import LoadStreams, LoadImages
 from utils.general import check_img_size, check_requirements, check_imshow, non_max_suppression, apply_classifier, \
     scale_coords, xyxy2xywh, strip_optimizer, set_logging, increment_path
-from utils.plots import plot_one_box, fill_one_box
+from utils.plots import crop_one_box, plot_one_box, fill_one_box, crop_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized
 
 
@@ -20,7 +20,7 @@ def detect(save_img=False):
     save_img = not opt.nosave and not source.endswith('.txt')  # save inference images
     webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(
         ('rtsp://', 'rtmp://', 'http://', 'https://'))
-    
+
     #### alternate
     if crop == True:
         save_img = False
@@ -68,6 +68,7 @@ def detect(save_img=False):
         img = torch.from_numpy(img).to(device)
         img = img.half() if half else img.float()  # uint8 to fp16/32
         img /= 255.0  # 0 - 255 to 0.0 - 1.0
+
         if img.ndimension() == 3:
             img = img.unsqueeze(0)
 
@@ -115,9 +116,13 @@ def detect(save_img=False):
                     if save_img or view_img:  # Add bbox to image
                         label = f'{names[int(cls)]} {conf:.2f}'
                         plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
-                        
+
                     elif crop:
-                        fill_one_box(xyxy, im0)
+                        # im0 = crop_one_box(xyxy, im0)
+                        # Read image again, and apply crop to 16bit image
+                        # cv2.IMREAD_UNCHANGED (or -1) as second argument to disable conversion to 8bit
+                        im1 = cv2.imread(path, cv2.IMREAD_UNCHANGED)
+                        im0 = crop_one_box(xyxy, im1)
 
             # Print time (inference + NMS)
             print(f'{s}Done. ({t2 - t1:.3f}s)')
