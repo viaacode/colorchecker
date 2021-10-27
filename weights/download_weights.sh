@@ -3,7 +3,7 @@
 # Usage:
 #    $ bash weights/download_weights.sh
 
-python - <<EOF
+python3 - <<EOF
 from utils.google_utils import attempt_download
 
 for x in ['yolov3', 'yolov3-spp', 'yolov3-tiny']:
