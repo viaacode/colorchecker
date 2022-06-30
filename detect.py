@@ -153,7 +153,7 @@ def detect(save_img=False):
                     
             elif crop:
                 if dataset.mode == 'image':
-                    cv2.imwrite(save_path, im0)
+                    cv2.imwrite(save_path, im0, params=(cv2.IMWRITE_TIFF_COMPRESSION, 1)) # disable tiff compression 
                 else:
                     if vid_path != save_path:  # new video
                         vid_path = save_path
